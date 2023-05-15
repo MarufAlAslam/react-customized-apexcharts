@@ -10,3 +10,8 @@ body, html{
 .h-400{
     height: 400px !important;
 }
+span.apexcharts-legend-text {
+    color: white !important;
+    font-size: 16px !important;
+    margin-right: 20PX;
+}
