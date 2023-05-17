@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { FaAngleLeft, FaAngleRight, FaTimes } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaTimes } from "react-icons/fa";
 
 const Search = () => {
     const [activeClass, setActiveClass] = useState("hidden")
@@ -13,24 +13,24 @@ const Search = () => {
     }
   return (
     <>
-      <div className="ml-auto w-full p-2 flex justify-between items-center">
-        <div className="bg-white p-2 flex just items-center w-full rounded-none">
-          <button onClick={toggleSearch} className="bg-gray-800 p-2 text-white rounded-none w-[220px]">
+      <div className="ml-auto w-full flex justify-between items-center">
+        <div className="bg-white px-1 flex just items-center w-full rounded-none">
+          <button onClick={toggleSearch} className="bg-[#323232] py-1 rounded-md text-white w-[150px] text-sm font-bold">
             advance search
           </button>
           <input
             type="text"
             placeholder="search by sec_id/sec_name, issuer, sector, indices"
-            className="p-2 w-full ml-3 text-right rounded-none"
+            className="p-2 w-full ml-3 text-right rounded-none placeholder:text-black text-sm"
           />
         </div>
 
-        <div className="btns flex justify-center items-center w-auto px-5 ml-5 h-full py-1 rounded-md bg-white">
+        <div className="btns flex justify-center items-center w-auto px-3 ml-5 h-[38px] overflow-hidden rounded-md bg-white">
           <button className="btn bg-white hover:bg-transparent border-0 p-0 text-black mx-3 text-xl">
-            <FaAngleLeft />
+            <FaArrowLeft />
           </button>
           <button className="btn bg-white hover:bg-transparent border-0 p-0 text-black mx-3 text-xl">
-            <FaAngleRight />
+            <FaArrowRight />
           </button>
         </div>
       </div>
@@ -69,7 +69,7 @@ const Search = () => {
         </div>
       </div>
 
-      <div className="text-right text-white flex justify-end align-items-center">
+      <div className="text-right text-sm mt-2 text-white flex justify-end align-items-center">
         <p className="mx-3">AZORIM</p>
         <p className="mx-3">AZRM.B11</p>
         <p className="mx-3">AZORIM B12</p>

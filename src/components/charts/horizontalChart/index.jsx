@@ -8,27 +8,42 @@ class ApexChart extends React.Component {
     this.state = {
       series: [
         {
-          name: "Mutual Funds",
-        //   21 random data
-            data: [44, 55, 41, 67, 22, 43, 21, 49, 45, 50, 56, 61, 58, 63, 60, 66, 70, 72, 75, 80, 85],
+          name: "mutual Funds etf",
+          //   21 random data
+          data: [
+            44, 55, 41, 67, 22, 43, 21, 49, 45, 50, 56, 61, 58, 63, 60, 66, 70,
+            72, 75, 80, 85,
+          ],
         },
         {
-            name: "Stocks",
-            data: [13, 23, 20, 8, 13, 27, 33, 31, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56],
+          name: "mutual funds",
+          data: [
+            13, 23, 20, 8, 13, 27, 33, 31, 32, 34, 36, 38, 40, 42, 44, 46, 48,
+            50, 52, 54, 56,
+          ],
         },
         {
-            name: "Bonds",
-            data: [11, 17, 15, 15, 21, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+          name: "insurance",
+          data: [
+            11, 17, 15, 15, 21, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46,
+            48, 50, 52,
+          ],
         },
         {
-            name: "Cash",
-            data: [21, 7, 5, 5, 11, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40],
+          name: "pension",
+          data: [
+            21, 7, 5, 5, 11, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38,
+            40,
+          ],
         },
         {
-            name: "Other",
-            // 21 random data
-            data: [21, 7, 5, 5, 11, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40],
-        }
+          name: "provident",
+          // 21 random data
+          data: [
+            21, 7, 5, 5, 11, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38,
+            40,
+          ],
+        },
       ],
       options: {
         chart: {
@@ -37,7 +52,7 @@ class ApexChart extends React.Component {
           stacked: true,
           toolbar: {
             show: false,
-        },
+          },
         },
         plotOptions: {
           bar: {
@@ -57,17 +72,17 @@ class ApexChart extends React.Component {
         stroke: {
           width: 0,
         },
-        colors: ['#7F7F7F', '#84B547', '#AA1985', '#887352', '#E76D3B'],
+        colors: ["#7F7F7F", "#84B547", "#AA1985", "#887352", "#E76D3B"],
         xaxis: {
           labels: {
             style: {
               colors: "#fff",
-            }
+            },
           },
         },
         yaxis: {
           show: false,
-          reversed: true
+          reversed: true,
         },
         tooltip: {
           y: {
@@ -83,10 +98,10 @@ class ApexChart extends React.Component {
           position: "top",
           horizontalAlign: "left",
           offsetX: 40,
-          customLegendItems: ['mutual Funds etf', 'mutual funds', 'insurance', 'pension', 'provident'],
+          // customLegendItems: ['mutual Funds etf', 'mutual funds', 'insurance', 'pension', 'provident'],
           markers: {
-            fillColors: ['#7F7F7F', '#84B547', '#AA1985', '#887352', '#E76D3B'],
-          }
+            fillColors: ["#7F7F7F", "#84B547", "#AA1985", "#887352", "#E76D3B"],
+          },
         },
       },
     };
@@ -94,13 +109,24 @@ class ApexChart extends React.Component {
 
   render() {
     return (
-      <div id="chart" className="bg-[#000000] min-h-full w-full text-black third">
-        <ReactApexChart
-          options={this.state.options}
-          series={this.state.series}
-          type="bar"
-          height={1000}
-        />
+      <div className="relative">
+      <div className="flex justify-end items-center options">
+        <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">sector</p>
+        <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">holders similar</p>
+        <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">non holders</p>
+        <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">sector</p>
+      </div>
+        <div
+          id="chart"
+          className="bg-[#000000] min-h-full w-full text-black third"
+        >
+          <ReactApexChart
+            options={this.state.options}
+            series={this.state.series}
+            type="bar"
+            height={1000}
+          />
+        </div>
       </div>
     );
   }
