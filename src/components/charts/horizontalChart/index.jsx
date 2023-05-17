@@ -33,8 +33,11 @@ class ApexChart extends React.Component {
       options: {
         chart: {
           type: "bar",
-          height: 850,
+          height: 950,
           stacked: true,
+          toolbar: {
+            show: false,
+        },
         },
         plotOptions: {
           bar: {
@@ -53,30 +56,23 @@ class ApexChart extends React.Component {
         },
         stroke: {
           width: 0,
-          colors: ["#fff"],
         },
-        title: {
-          text: "Fiction Books Sales",
-        },
+        colors: ['#7F7F7F', '#84B547', '#AA1985', '#887352', '#E76D3B'],
         xaxis: {
-          categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
-          colors: ["#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff"],
           labels: {
-            formatter: function (val) {
-              return val + "K";
-            },
+            style: {
+              colors: "#fff",
+            }
           },
         },
         yaxis: {
-          title: {
-            text: undefined,
-          },
+          show: false,
           reversed: true
         },
         tooltip: {
           y: {
             formatter: function (val) {
-              return val + "K";
+              return val;
             },
           },
         },
@@ -87,6 +83,10 @@ class ApexChart extends React.Component {
           position: "top",
           horizontalAlign: "left",
           offsetX: 40,
+          customLegendItems: ['mutual Funds etf', 'mutual funds', 'insurance', 'pension', 'provident'],
+          markers: {
+            fillColors: ['#7F7F7F', '#84B547', '#AA1985', '#887352', '#E76D3B'],
+          }
         },
       },
     };
@@ -94,12 +94,12 @@ class ApexChart extends React.Component {
 
   render() {
     return (
-      <div id="chart" className="bg-[#000000] min-h-full text-black">
+      <div id="chart" className="bg-[#000000] min-h-full w-full text-black third">
         <ReactApexChart
           options={this.state.options}
           series={this.state.series}
           type="bar"
-          height={870}
+          height={1000}
         />
       </div>
     );

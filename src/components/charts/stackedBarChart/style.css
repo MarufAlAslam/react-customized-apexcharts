@@ -1,0 +1,156 @@
+.first .apexcharts-legend-series:first-child {
+    background: #7F7F7F;
+    padding: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-radius: 5px;
+    font-size: 13px !important;
+    overflow: hidden;
+    width: 150px;
+    text-align: center;
+}
+.first .apexcharts-legend-series:last-child {
+    background: #84B547;
+    padding: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-radius: 5px;
+    font-size: 13px !important;
+    overflow: hidden;
+    width: 150px;
+    text-align: center;
+}
+
+
+
+
+.second .apexcharts-legend-series:first-child {
+    background: #E76D3B;
+    padding: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-radius: 5px;
+    font-size: 13px !important;
+    overflow: hidden;
+    width: 150px;
+    text-align: center;
+}
+.second .apexcharts-legend-series:nth-child(2) {
+    background: #AA1985;
+    padding: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-radius: 5px;
+    font-size: 13px !important;
+    overflow: hidden;
+    width: 150px;
+    text-align: center;
+}
+
+.second .apexcharts-legend-series:last-child {
+    background: #2DBDA8;
+    padding: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-radius: 5px;
+    font-size: 13px !important;
+    overflow: hidden;
+    width: 150px;
+    text-align: center;
+}
+
+
+
+
+.third .apexcharts-legend-series:first-child {
+    background: #7F7F7F;
+    padding: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-radius: 5px;
+    font-size: 13px !important;
+    overflow: hidden;
+    width: 130px;
+    text-align: center;
+}
+.third .apexcharts-legend-series:nth-child(2) {
+    background: #84B547;
+    padding: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-radius: 5px;
+    font-size: 13px !important;
+    overflow: hidden;
+    width: 130px;
+    text-align: center;
+}
+.third .apexcharts-legend-series:nth-child(3) {
+    background: #AA1985;
+    padding: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-radius: 5px;
+    font-size: 13px !important;
+    overflow: hidden;
+    width: 130px;
+    text-align: center;
+}
+.third .apexcharts-legend-series:nth-child(4) {
+    background: #887352;
+    padding: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-radius: 5px;
+    font-size: 13px !important;
+    overflow: hidden;
+    width: 130px;
+    text-align: center;
+}
+.third .apexcharts-legend-series:last-child {
+    background: #E76D3B;
+    padding: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    border-radius: 5px;
+    font-size: 13px !important;
+    overflow: hidden;
+    width: 130px;
+    text-align: center;
+}
+
+
+.first .apexcharts-legend-series *,
+.second .apexcharts-legend-series *,
+.third .apexcharts-legend-series *
+{
+    font-size: 11px !important;
+    line-height: 0;
+}
+
+.apexcharts-legend.apexcharts-align-left.apx-legend-position-top {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    position: relative;
+    left: 7px !important;
+}
+
+.third .apexcharts-legend-series::after{
+    content: '854,966,325';
+    display: block;
+    color: #fff;
+    font-size: 10px;
+}
+
+.dropdown-content form .flex{
+    margin: 5px 0;
+}

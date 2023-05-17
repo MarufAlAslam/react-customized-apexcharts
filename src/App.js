@@ -6,12 +6,13 @@ import TopBar from "./components/topbar";
 function App() {
   return (
     <div className="App">
-      <TopBar/>
-      <Holdings/>
+      <TopBar />
+      <Holdings />
       <div className="lg:w-1/2 ml-auto p-3 mr-1 pb-0">
-      <Search/>
+        <Search />
+        
       </div>
-      <Charts/>
+      <Charts />
     </div>
   );
 }
