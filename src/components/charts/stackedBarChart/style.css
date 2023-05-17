@@ -165,3 +165,7 @@
 .third .apexcharts-legend {
     top: 0 !important;
 }
+
+select{
+    background-color: white;
+}
