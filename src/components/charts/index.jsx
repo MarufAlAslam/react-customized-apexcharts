@@ -26,7 +26,7 @@ const Charts = () => {
           </div>
           <div className="vals w-[20%]">
             <div className="header flex justify-between items-center">
-              <div className="flex h-[35px] justify-start items-center bg-[#292E32] w-full px-2">
+              <div className="flex h-45px] justify-between pr-5 items-center bg-[#292E32] w-full px-2">
                 <div className="dropdown dropdown-bottom dropdown-end p-0 bg-transparent hover:bg-transparent w-auto">
                   <label
                     tabIndex={0}
@@ -43,9 +43,12 @@ const Charts = () => {
                     <li className="text-white text-sm">0% of capital</li>
                   </ul>
                 </div>
-                <div className="text-center text-white">Par Value</div>
+                <div className="text-center text-white">
+                  <p className="text-sm">Par Value</p>
+                  <p className="text-sm font-semibold">12,854,568,995</p>
+                </div>
               </div>
-              <div className="h-[35px] bg-[#292E32] ml-2 p-2 min-w-[50px] flex justify-center items-center">
+              <div className="h-[56px] bg-[#292E32] ml-2 p-2 min-w-[50px] flex justify-center items-center">
                 <FaStar className="m-auto text-xl" />
               </div>
             </div>
