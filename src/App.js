@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <TopBar />
       <Holdings />
-      <div className="lg:w-1/2 ml-auto p-3 mr-1 pb-0">
+      <div className="lg:w-[55%] ml-auto p-3 mr-1 pb-0">
         <Search />
         
       </div>

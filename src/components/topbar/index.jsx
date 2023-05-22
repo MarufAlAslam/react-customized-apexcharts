@@ -2,7 +2,7 @@ import React from 'react'
 
 const TopBar = () => {
     return (
-        <div className='p-3'>
+        <div className='py-0 px-3'>
             <p className='text-white'>BrokersConnect</p>
         </div>
     )

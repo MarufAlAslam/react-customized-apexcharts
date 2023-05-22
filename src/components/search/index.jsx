@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { FaArrowLeft, FaArrowRight, FaTimes } from "react-icons/fa";
 
+import { FiArrowLeft, FiArrowRight  } from "react-icons/fi";
+
 const Search = () => {
     const [activeClass, setActiveClass] = useState("hidden")
     const cancel = (e) => {
@@ -13,9 +15,9 @@ const Search = () => {
     }
   return (
     <>
-      <div className="ml-auto w-full flex justify-between items-center">
+      <div className="ml-auto w-full flex justify-between items-center rounded">
         <div className="bg-white px-1 flex just items-center w-full rounded-none">
-          <button onClick={toggleSearch} className="bg-[#323232] py-1 rounded-md text-white w-[150px] text-sm font-bold">
+          <button onClick={toggleSearch} className="bg-[#323232] py-1 rounded text-white w-[150px] text-sm font-bold">
             advance search
           </button>
           <input
@@ -25,12 +27,12 @@ const Search = () => {
           />
         </div>
 
-        <div className="btns flex justify-center items-center w-auto px-3 ml-5 h-[38px] overflow-hidden rounded-md bg-white">
-          <button className="btn bg-white hover:bg-transparent border-0 p-0 text-black mx-3 text-xl">
-            <FaArrowLeft />
+        <div className="btns flex justify-center items-center w-auto px-3 ml-2 h-[38px] overflow-hidden rounded bg-white">
+          <button className="btn bg-white hover:bg-transparent border-0 p-0 text-black mx-2 text-xl">
+            <FiArrowLeft />
           </button>
-          <button className="btn bg-white hover:bg-transparent border-0 p-0 text-black mx-3 text-xl">
-            <FaArrowRight />
+          <button className="btn bg-white hover:bg-transparent border-0 p-0 text-black mx-2 text-xl">
+            <FiArrowRight />
           </button>
         </div>
       </div>
@@ -69,7 +71,7 @@ const Search = () => {
         </div>
       </div>
 
-      <div className="text-right text-sm mt-2 text-white flex justify-end align-items-center">
+      <div className="text-right text-sm mt-3 text-white flex justify-end align-items-center">
         <p className="mx-3">AZORIM</p>
         <p className="mx-3">AZRM.B11</p>
         <p className="mx-3">AZORIM B12</p>
