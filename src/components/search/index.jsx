@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import {FaTimes } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";
@@ -16,6 +16,9 @@ const Search = () => {
   };
 
   const [visibleSearchPopup, setVisibleSearchPopup] = useState(false);
+  const [visibleSuggestions, setVisibleSuggestions] = useState(false);
+
+  const [lastField, setLastField] = useState(false);
 
   const [lastSearches, setLastSearches] = useState(["Recent search"]);
   const [favSearches, setFavSearches] = useState([
@@ -25,6 +28,17 @@ const Search = () => {
     "Recent search",
     "Recent search",
   ]);
+
+  const searchSuggestions = [
+    "Ayo",
+    "Oba",
+    "Baby",
+    "Babe",
+    "Love",
+    "Cynthia",
+    "Felicia",
+    "Grace",
+  ];
   const deleteItem = (index) => {
     const newSearches = lastSearches.filter((search, i) => i !== index);
     setLastSearches(newSearches);
@@ -34,6 +48,52 @@ const Search = () => {
     const newSearches = favSearches.filter((search, i) => i !== index);
     setFavSearches(newSearches);
   };
+
+  // make visiblesearchpopup false when start typing
+
+  const search = document.getElementById("search");
+
+
+  const searchKeyUp = (e) => {
+    if (e.target.value.length > 0) {
+      setVisibleSearchPopup(false);
+      setVisibleSuggestions(true);
+    } else {
+      setVisibleSearchPopup(true);
+      setVisibleSuggestions(false);
+    }
+  }
+  // search.addEventListener("keyup", (e) => {
+    
+  // });
+
+  // if .sugg-btn clicked, the value of the button will be added to the input value
+  const addValue = (index) => {
+    const value = searchSuggestions[index];
+    search.value = value;
+
+    // push the value to last searches
+    const newSearches = [...lastSearches, value];
+    setLastSearches(newSearches);
+    // setVisibleSuggestions(false);
+  };
+
+  const searchClicked = (e) => {
+    if (e.target.value.length <= 0) {
+      setVisibleSearchPopup(!visibleSearchPopup);
+      setLastField(false);
+    } else if (e.target.value.length > 0) {
+      setVisibleSearchPopup(false);
+      setVisibleSuggestions(true);
+
+      // if search clicked again hide suggestions
+      if (visibleSuggestions) {
+        setVisibleSuggestions(false);
+        setLastField(true);
+      }
+    }
+  };
+
   return (
     <>
       <div className="ml-auto w-full flex justify-between items-center rounded">
@@ -46,42 +106,136 @@ const Search = () => {
           </button>
           <input
             type="text"
-            onClick={() => setVisibleSearchPopup(!visibleSearchPopup)}
+            onClick={searchClicked}
+            onKeyUp={searchKeyUp}
+            // defaultValue={"search by sec_id/sec_name, issuer, sector, indices"}
             placeholder="search by sec_id/sec_name, issuer, sector, indices"
+            id="search"
+            autoComplete="off"
             className="p-2 w-full ml-3 text-right rounded-none placeholder:text-black text-sm focus:outline-none"
           />
 
           {visibleSearchPopup && (
             <div className="search-popup bg-white p-3">
-              <div className="flex flex-wrap justify-end items-center">
-                {lastSearches.map((search, index) => (
-                  <div
-                    className="bg-[#E5E5E5] px-3 py-1 rounded text-sm text-black mr-2 flex justify-center items-center"
+              <>
+                <div className="flex flex-wrap justify-end items-center">
+                  {lastSearches.map((search, index) => (
+                    <div
+                      className="bg-[#E5E5E5] px-3 py-1 rounded text-sm text-black mr-2 flex justify-center items-center"
+                      key={index}
+                    >
+                      <IoCloseOutline
+                        className="mr-2"
+                        onClick={() => deleteItem(index)}
+                      />{" "}
+                      {search}
+                    </div>
+                  ))}
+                  <span className="fw-semibold text-sm">:Last searches</span>
+                </div>
+                <div className="flex flex-wrap justify-end items-center mt-2">
+                  {favSearches.map((search, index) => (
+                    <div
+                      className="bg-[#E5E5E5] px-3 py-1 rounded text-sm text-black mr-2 flex justify-center items-center"
+                      key={index}
+                    >
+                      <IoCloseOutline
+                        className="mr-2"
+                        onClick={() => deleteFavItem(index)}
+                      />{" "}
+                      {search}
+                    </div>
+                  ))}
+                  <span className="fw-semibold text-sm">
+                    :Favorite searches
+                  </span>
+                </div>
+              </>
+            </div>
+          )}
+          {visibleSuggestions && (
+            <div className="search-popup bg-white p-3">
+              <div className="text-right">
+                {searchSuggestions.map((suggestion, index) => (
+                  <button
                     key={index}
+                    onClick={() => addValue(index)}
+                    className="block mb-2 ml-auto font-semibold w-full text-right sugg-btn"
                   >
-                    <IoCloseOutline
-                      className="mr-2"
-                      onClick={() => deleteItem(index)}
-                    />{" "}
-                    {search}
-                  </div>
+                    {suggestion}
+                  </button>
                 ))}
-                <span className="fw-semibold text-sm">:Last searches</span>
               </div>
-              <div className="flex flex-wrap justify-end items-center mt-2">
-                {favSearches.map((search, index) => (
-                  <div
-                    className="bg-[#E5E5E5] px-3 py-1 rounded text-sm text-black mr-2 flex justify-center items-center"
-                    key={index}
-                  >
-                    <IoCloseOutline
-                      className="mr-2"
-                      onClick={() => deleteFavItem(index)}
-                    />{" "}
-                    {search}
-                  </div>
-                ))}
-                <span className="fw-semibold text-sm">:Favorite searches</span>
+            </div>
+          )}
+          {lastField && (
+            <div className="search-popup bg-white p-3">
+              <div className="text-center">Similar Securities</div>
+
+              <div className="px-1 py-5">
+                <table className="w-full">
+                  <thead>
+                    <tr>
+                      <th className="text-sm font-semibold pb-5">duration</th>
+                      <th className="text-sm font-semibold pb-5">maalot</th>
+                      <th className="text-sm font-semibold pb-5">sector_sub</th>
+                      <th className="text-sm font-semibold pb-5">sector</th>
+                      <th className="text-sm font-semibold pb-5">sec_type_sub</th>
+                      <th className="text-sm font-semibold pb-5">sec_type</th>
+                    </tr>
+                  </thead>
+
+                  <tbody className="text-center pt-5">
+                    <tr>
+                      <td className="text-sm px-5">2.1</td>
+                      <td className="text-sm bg-[#E0E0E0] px-5">7</td>
+                      <td className="text-sm px-5">1.1</td>
+                      <td className="text-sm px-5">2</td>
+                      <td className="text-sm px-5">Elupi</td>
+                      <td className="text-sm px-5">Elupi</td>
+                    </tr>
+                    <tr>
+                      <td className="text-sm px-5">2.1</td>
+                      <td className="text-sm bg-[#E0E0E0] px-5">7</td>
+                      <td className="text-sm px-5">1.1</td>
+                      <td className="text-sm px-5">2</td>
+                      <td className="text-sm px-5">Elupi</td>
+                      <td className="text-sm px-5">Elupi</td>
+                    </tr>
+                    <tr>
+                      <td className="text-sm px-5">2.1</td>
+                      <td className="text-sm bg-[#E0E0E0] px-5">7</td>
+                      <td className="text-sm px-5">1.1</td>
+                      <td className="text-sm px-5">2</td>
+                      <td className="text-sm px-5">Elupi</td>
+                      <td className="text-sm px-5">Elupi</td>
+                    </tr>
+                    <tr>
+                      <td className="text-sm px-5">2.1</td>
+                      <td className="text-sm bg-[#E0E0E0] px-5">7</td>
+                      <td className="text-sm px-5">1.1</td>
+                      <td className="text-sm px-5">2</td>
+                      <td className="text-sm px-5">Elupi</td>
+                      <td className="text-sm px-5">Elupi</td>
+                    </tr>
+                    <tr>
+                      <td className="text-sm px-5">2.1</td>
+                      <td className="text-sm bg-[#E0E0E0] px-5">7</td>
+                      <td className="text-sm px-5">1.1</td>
+                      <td className="text-sm px-5">2</td>
+                      <td className="text-sm px-5">Elupi</td>
+                      <td className="text-sm px-5">Elupi</td>
+                    </tr>
+                    <tr>
+                      <td className="text-sm px-5">2.1</td>
+                      <td className="text-sm bg-[#E0E0E0] px-5">7</td>
+                      <td className="text-sm px-5">1.1</td>
+                      <td className="text-sm px-5">2</td>
+                      <td className="text-sm px-5">Elupi</td>
+                      <td className="text-sm px-5">Elupi</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           )}
