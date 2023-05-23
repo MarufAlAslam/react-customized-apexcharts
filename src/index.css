@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+
+
+
 body, html{
     background-color: #323232;
     min-height: 100vh;
@@ -18,4 +22,43 @@ span.apexcharts-legend-text {
 
 input{
     background-color: white;
+}
+.third .apexcharts-legend {
+    right: 5px !important;
+}
+.apexcharts-legend-series {
+    border-radius: 3px !important;
+}
+
+.third .apexcharts-legend-series .apexcharts-legend-text{
+    font-family: 'Open Sans Hebrew', serif !important;
+    font-size: 10px !important;
+}
+
+td {
+    font-family: 'Open Sans Hebrew', serif !important;
+    font-size: 12px !important;
+    font-weight: 400;
+    height: 42.5px !important;
+}
+
+.heb{
+    font-family: 'Open Sans Hebrew', serif !important;
+    font-size: 10px !important;
+    font-weight: 400;
+}
+
+.custom-dropdown {
+    position: absolute;
+    background: white;
+    width: 120%;
+    right: 0;
+    top: 110%;
+    border-radius: 3px;
+    font-weight: 500;
+    line-height: 2;
+}
+g#SvgjsG1443 {
+    margin-top: 20px !important;
+    transform: translateY(87px) translateX(40px);
 }

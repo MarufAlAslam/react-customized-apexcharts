@@ -43,10 +43,11 @@ class ApexBar2 extends React.Component {
             horizontal: false,
             dataLabels: {
               total: {
-                enabled: false,
+                enabled: true,
                 offsetX: 0,
                 style: {
                   fontSize: "13px",
+                  color: "#fff",
                   fontWeight: 900,
                 },
               },
@@ -107,7 +108,7 @@ class ApexBar2 extends React.Component {
           options={this.state.options}
           series={this.state.series}
           type="bar"
-          height={450}
+          height={482}
         />
       </div>
     );

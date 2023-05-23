@@ -37,10 +37,11 @@ class ApexBar extends React.Component {
             horizontal: false,
             dataLabels: {
               total: {
-                enabled: false,
+                enabled: true,
                 offsetX: 0,
                 style: {
                   fontSize: "13px",
+                  color: "#fff",
                   fontWeight: 900,
                 },
               },

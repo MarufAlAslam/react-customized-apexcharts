@@ -57,6 +57,7 @@ class ApexChart extends React.Component {
         plotOptions: {
           bar: {
             horizontal: true,
+            barHeight: "14px",
             dataLabels: {
               total: {
                 enabled: false,
@@ -96,11 +97,30 @@ class ApexChart extends React.Component {
         },
         legend: {
           position: "top",
-          horizontalAlign: "left",
+          horizontalAlign: "right",
           offsetX: 40,
           // customLegendItems: ['mutual Funds etf', 'mutual funds', 'insurance', 'pension', 'provident'],
           markers: {
             fillColors: ["#7F7F7F", "#84B547", "#AA1985", "#887352", "#E76D3B"],
+          },
+        },
+        grid: {
+          borderColor: "#e2e8f0",
+          strokeDashArray: 0,
+          position: "back",
+          xaxis: {
+            lines: {
+              show: true,
+            },
+          },
+          yaxis: {
+            lines: {
+              show: false,
+            },
+          },
+          row: {
+            colors: undefined,
+            opacity: 0.5,
           },
         },
       },
@@ -110,12 +130,20 @@ class ApexChart extends React.Component {
   render() {
     return (
       <div className="relative">
-      <div className="flex justify-end items-center options">
-        <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">sector</p>
-        <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">holders similar</p>
-        <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">non holders</p>
-        <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">sector</p>
-      </div>
+        <div className="flex justify-end items-center options">
+          <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">
+            sector
+          </p>
+          <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">
+            holders similar
+          </p>
+          <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">
+            non holders
+          </p>
+          <p className="cursor-pointer ml-4 pb-2 text-[#ffffff80] hover:text-[#ffffff]">
+            sector
+          </p>
+        </div>
         <div
           id="chart"
           className="bg-[#000000] min-h-full w-full text-black third"
