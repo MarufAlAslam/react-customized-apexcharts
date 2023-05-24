@@ -1,5 +1,5 @@
 .first .apexcharts-legend-series:first-child {
-    background: #7F7F7F;
+    background: #84B547;
     padding: 5px;
     /* display: flex; */
     /* justify-content: center; */
@@ -11,7 +11,7 @@
     text-align: center;
 }
 .first .apexcharts-legend-series:last-child {
-    background: #84B547;
+    background: #7F7F7F;
     padding: 5px;
     /* display: flex; */
     /* justify-content: center; */
@@ -27,7 +27,7 @@
 
 
 .second .apexcharts-legend-series:first-child {
-    background: #E76D3B;
+    background: #2DBDA8;
     padding: 5px;
     /* display: flex; */
     /* justify-content: center; */
@@ -52,7 +52,7 @@
 }
 
 .second .apexcharts-legend-series:last-child {
-    background: #2DBDA8;
+    background: #E76D3B;
     padding: 5px;
     /* display: flex; */
     /* justify-content: center; */
@@ -63,8 +63,6 @@
     width: 150px;
     text-align: center;
 }
-
-
 
 
 .third .apexcharts-legend-series:first-child {

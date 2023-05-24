@@ -50,6 +50,7 @@ class ApexChart extends React.Component {
           type: "bar",
           height: 950,
           stacked: true,
+          
           toolbar: {
             show: false,
           },
@@ -73,7 +74,7 @@ class ApexChart extends React.Component {
         stroke: {
           width: 0,
         },
-        colors: ["#7F7F7F", "#84B547", "#AA1985", "#887352", "#E76D3B"],
+        colors: [ "#E76D3B","#887352","#AA1985","#84B547","#7F7F7F",],
         xaxis: {
           labels: {
             style: {
@@ -99,9 +100,10 @@ class ApexChart extends React.Component {
           position: "top",
           horizontalAlign: "right",
           offsetX: 40,
+          inverseOrder: true,
           // customLegendItems: ['mutual Funds etf', 'mutual funds', 'insurance', 'pension', 'provident'],
           markers: {
-            fillColors: ["#7F7F7F", "#84B547", "#AA1985", "#887352", "#E76D3B"],
+            fillColors:[ "#E76D3B","#887352","#AA1985","#84B547","#7F7F7F",],
           },
         },
         grid: {
@@ -126,8 +128,10 @@ class ApexChart extends React.Component {
       },
     };
   }
+  
 
   render() {
+    
     return (
       <div className="relative">
         <div className="flex justify-end items-center options">

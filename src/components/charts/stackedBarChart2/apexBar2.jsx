@@ -1,7 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-import './style.css'
+import "./style.css";
 
 class ApexBar2 extends React.Component {
   constructor(props) {
@@ -9,24 +9,19 @@ class ApexBar2 extends React.Component {
 
     this.state = {
       series: [
+        
         {
-          name: "insurance",
-          //   21 random data
-          data: [
-            34, 59, 81, 70
-          ],
+          name: "provident",
+          data: [31, 38, 25, 16],
         },
         {
           name: "pension",
-          data: [
-            31, 38, 25, 16
-          ],
+          data: [31, 38, 25, 16],
         },
         {
-          name: "provident",
-          data: [
-            31, 38, 25, 16
-          ],
+          name: "insurance",
+          //   21 random data
+          data: [34, 59, 81, 70],
         },
       ],
       options: {
@@ -36,7 +31,7 @@ class ApexBar2 extends React.Component {
           stacked: true,
           toolbar: {
             show: false,
-        },
+          },
         },
         plotOptions: {
           bar: {
@@ -59,16 +54,29 @@ class ApexBar2 extends React.Component {
           colors: ["#fff"],
         },
         colors: ["#E76D3B", "#AA1985", "#2DBDA8"],
-       
+
         xaxis: {
-          categories: ["Jan 22", "Feb 22", "Mar 22", "Apr 22", "May 22", "Jun 22", "Jul 22", "Aug 22", "Sep 22", "Oct 22", "Nov 22", "Dec 22"],
+          categories: [
+            "Jan 22",
+            "Feb 22",
+            "Mar 22",
+            "Apr 22",
+            "May 22",
+            "Jun 22",
+            "Jul 22",
+            "Aug 22",
+            "Sep 22",
+            "Oct 22",
+            "Nov 22",
+            "Dec 22",
+          ],
           labels: {
             formatter: function (val) {
-              return val ;
+              return val;
             },
-           style: {
-                colors: "#fff",
-           }
+            style: {
+              colors: "#fff",
+            },
           },
         },
         yaxis: {
@@ -90,12 +98,12 @@ class ApexBar2 extends React.Component {
         legend: {
           position: "top",
           horizontalAlign: "right",
+          inverseOrder: true,
           offsetX: 40,
           markers: {
             fillColors: ["#E76D3B", "#AA1985", "#2DBDA8"],
           },
-          labels: {
-          }
+          labels: {},
         },
       },
     };

@@ -17,7 +17,7 @@ class ApexBar extends React.Component {
           ],
         },
         {
-          name: "Stocks",
+          name: "mutual fund etf",
           data: [
             13, 23, 20, 8, 13, 27, 33, 31, 32, 34, 36, 38
           ],
@@ -84,6 +84,7 @@ class ApexBar extends React.Component {
         legend: {
           position: "top",
           horizontalAlign: "right",
+          inverseOrder: true,
           offsetX: 40,
           markers: {
             fillColors: ["#7F7F7F", "#84B547"],
