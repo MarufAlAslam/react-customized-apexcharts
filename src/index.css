@@ -10,6 +10,24 @@ body, html{
     background-color: #323232;
     min-height: 100vh;
 }
+body{
+    overflow-x: scroll;
+    /* min-width: 2024px !important; */
+    /* always show the right side of the page while overflowing */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 50px;
+}
+
+.chartts {
+    min-width: 2024px;
+    float: right;
+}
+
+.main{
+    position: relative;
+}
+
 
 .h-400{
     height: 400px !important;
