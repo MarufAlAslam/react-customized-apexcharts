@@ -19,9 +19,9 @@ const Charts = () => {
     setCustomDropdown(!customDropdown);
   };
   return (
-    <div className="p-4 text-white">
-      <div className="lg:flex justify-between items-start gap-4">
-        <div className="lg:w-[45%] w-full txt-white">
+    <div className="p-4 text-white charts">
+      <div className="flex justify-between items-start gap-4">
+        <div className="w-[45%] txt-white">
           <div className="bg-black rounded-[3px] p-4 mb-5">
             {/* <StackedBarChart /> */}
             <ApexBar />
@@ -31,7 +31,7 @@ const Charts = () => {
             <ApexBar2 />
           </div>
         </div>
-        <div className="lg:w-[55%] rounded-[3px] flex justify-between items-start w-full text-white bg-black p-4">
+        <div className="w-[55%] rounded-[3px] flex justify-between items-start text-white bg-black p-4">
           <div className="w-[80%]">
             <ApexChart />
           </div>
