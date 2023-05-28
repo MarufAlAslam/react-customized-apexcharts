@@ -18,6 +18,8 @@ const Search = () => {
   const [visibleSearchPopup, setVisibleSearchPopup] = useState(false);
   const [visibleSuggestions, setVisibleSuggestions] = useState(false);
 
+  const [searchedTerms, setSearchedTerms] = useState([]);
+
   const [lastField, setLastField] = useState(false);
 
   const [lastSearches, setLastSearches] = useState(["Recent search"]);
@@ -53,7 +55,6 @@ const Search = () => {
 
   const search = document.getElementById("search");
 
-
   const searchKeyUp = (e) => {
     if (e.target.value.length > 0) {
       setVisibleSearchPopup(false);
@@ -62,19 +63,29 @@ const Search = () => {
       setVisibleSearchPopup(true);
       setVisibleSuggestions(false);
     }
-  }
+  };
   // search.addEventListener("keyup", (e) => {
-    
+
   // });
 
   // if .sugg-btn clicked, the value of the button will be added to the input value
   const addValue = (index) => {
     const value = searchSuggestions[index];
-    search.value = value;
+    search.value = "";
+    
+    // set search placeholder to the value
+    search.placeholder = "";
+
+    // insert value to searched terms
+    const newSearchedTerms = [...searchedTerms, value];
+    setSearchedTerms(newSearchedTerms);
 
     // push the value to last searches
     const newSearches = [...lastSearches, value];
     setLastSearches(newSearches);
+
+    setVisibleSearchPopup(false);
+    setVisibleSuggestions(false);
     // setVisibleSuggestions(false);
   };
 
@@ -94,6 +105,17 @@ const Search = () => {
     }
   };
 
+  const removeTerm = (index) => {
+    const newTerms = searchedTerms.filter((term, i) => i !== index);
+    setSearchedTerms(newTerms);
+
+    // if searched terms is empty, display make input field empty
+    if (newTerms.length <= 0) {
+      search.value = "";
+      search.placeholder = "search by sec_id/sec_name, issuer, sector, indices";
+    }
+  };
+
   return (
     <>
       <div className="ml-auto w-full flex justify-between items-center rounded">
@@ -104,6 +126,15 @@ const Search = () => {
           >
             advance search
           </button>
+
+          { searchedTerms !== "" && (
+            <button className="pl-3">
+              <IoCloseOutline
+                className="mr-2"
+                onClick={() => setSearchedTerms([])}
+              />
+            </button>
+          )}
           <input
             type="text"
             onClick={searchClicked}
@@ -114,6 +145,23 @@ const Search = () => {
             autoComplete="off"
             className="p-2 w-full ml-3 text-right rounded-none placeholder:text-black text-sm focus:outline-none"
           />
+          <div className="search-tags flex pr-0 text-sm">
+            {searchedTerms &&
+              searchedTerms.map((term, index) => (
+                <span
+                  key={index}
+                  className="bg-[#E5E5E5] px-3 py-1 rounded flex text-xs text-black mr-2"
+                >
+                  <button onClick={() => removeTerm(index)}>
+                    <IoCloseOutline
+                      className="mr-2"
+                      onClick={() => deleteItem(index)}
+                    />
+                  </button>{" "}
+                  {term}
+                </span>
+              ))}
+          </div>
 
           {visibleSearchPopup && (
             <div className="search-popup bg-white p-3">
@@ -180,7 +228,9 @@ const Search = () => {
                       <th className="text-sm font-semibold pb-5">maalot</th>
                       <th className="text-sm font-semibold pb-5">sector_sub</th>
                       <th className="text-sm font-semibold pb-5">sector</th>
-                      <th className="text-sm font-semibold pb-5">sec_type_sub</th>
+                      <th className="text-sm font-semibold pb-5">
+                        sec_type_sub
+                      </th>
                       <th className="text-sm font-semibold pb-5">sec_type</th>
                     </tr>
                   </thead>
