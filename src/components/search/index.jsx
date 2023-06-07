@@ -72,7 +72,7 @@ const Search = () => {
   const addValue = (index) => {
     const value = searchSuggestions[index];
     search.value = "";
-    
+
     // set search placeholder to the value
     search.placeholder = "";
 
@@ -116,18 +116,56 @@ const Search = () => {
     }
   };
 
+  const suggestionToValue = (index) => {
+    const value = favSearches[index];
+    search.value = "";
+
+    // set search placeholder to the value
+    search.placeholder = "";
+
+    // insert value to searched terms
+    const newSearchedTerms = [...searchedTerms, value];
+    setSearchedTerms(newSearchedTerms);
+
+    // push the value to last searches
+    const newSearches = [...lastSearches, value];
+    setLastSearches(newSearches);
+
+    setVisibleSearchPopup(false);
+    setVisibleSuggestions(false);
+  };
+
+  const lastSearchToValue = (index) => {
+    const value = lastSearches[index];
+    search.value = "";
+
+    // set search placeholder to the value
+    search.placeholder = "";
+
+    // insert value to searched terms
+    const newSearchedTerms = [...searchedTerms, value];
+    setSearchedTerms(newSearchedTerms);
+
+    // push the value to last searches
+    const newSearches = [...lastSearches, value];
+    setLastSearches(newSearches);
+
+    setVisibleSearchPopup(false);
+    setVisibleSuggestions(false);
+  };
+
   return (
     <>
       <div className="ml-auto w-full flex justify-between items-center rounded">
         <div className="bg-white px-1 flex just items-center w-full rounded relative">
           <button
             onClick={toggleSearch}
-            className="bg-[#323232] py-1 rounded text-white w-[150px] text-sm font-bold"
+            className="bg-[#323232] py-1 rounded text-white min-w-[150px] text-sm font-bold"
           >
             advance search
           </button>
 
-          { searchedTerms !== "" && (
+          {searchedTerms !== "" && (
             <button className="pl-3">
               <IoCloseOutline
                 className="mr-2"
@@ -150,7 +188,7 @@ const Search = () => {
               searchedTerms.map((term, index) => (
                 <span
                   key={index}
-                  className="bg-[#E5E5E5] px-3 py-1 rounded flex text-xs text-black mr-2"
+                  className="bg-[#E5E5E5] px-3 py-1 rounded flex text-xs text-black mr-2 justify-center flex-nowrap items-center min-w-[120px]"
                 >
                   <button onClick={() => removeTerm(index)}>
                     <IoCloseOutline
@@ -171,6 +209,7 @@ const Search = () => {
                     <div
                       className="bg-[#E5E5E5] px-3 py-1 rounded text-sm text-black mr-2 flex justify-center items-center"
                       key={index}
+                      onClick={() => lastSearchToValue(index)}
                     >
                       <IoCloseOutline
                         className="mr-2"
@@ -186,6 +225,7 @@ const Search = () => {
                     <div
                       className="bg-[#E5E5E5] px-3 py-1 rounded text-sm text-black mr-2 flex justify-center items-center"
                       key={index}
+                      onClick={() => suggestionToValue(index)}
                     >
                       <IoCloseOutline
                         className="mr-2"

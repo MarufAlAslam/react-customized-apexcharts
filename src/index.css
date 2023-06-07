@@ -10,6 +10,9 @@ body, html{
     background-color: #323232;
     min-height: 100vh;
 }
+.flex.justify-between.items-start.gap-4 {
+    background: #323232;
+}
 body{
     overflow-x: scroll;
     /* min-width: 2024px !important; */
